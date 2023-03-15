@@ -13,11 +13,11 @@ import java.util.UUID
   for one domain 
  */
 object model:
-  
-  case class UserProfile(userId: UUID)
-  case class Post(userId: UUID, postId: UUID)
-  case class Comment(userId: UUID, postId: UUID)
-  case class Like(userId: UUID, postId: UUID)
-  case class Share(userId: UUID, postId: UUID)
+
+  case class UserProfile(userId: UUID, name: String, surname: String)
+  case class Post(userId: UUID, postId: UUID, title: String, content: String)
+  case class Comment(userId: UUID, postId: UUID, commentId: UUID, content: String)
+  case class Like(userId: UUID, postId: UUID, likeId: UUID)
+  case class Share(userId: UUID, postId: UUID, shareId: UUID)
   case class PostView(post: Post, comments: List[Comment], likes: List[Like], shares: List[Share])
   

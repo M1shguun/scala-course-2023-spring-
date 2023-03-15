@@ -12,9 +12,18 @@ import model._
   The services need to be implemented in case of running the code
  */
 object services:
-  
-  def getUserProfile(): ErrorOr[UserProfile] = ???
-  def getPosts(userId: UUID): ErrorOr[List[Post]] = ???
-  def getComments(postId: UUID): ErrorOr[List[Comment]] = ??? 
-  def getLikes(postId: UUID): ErrorOr[List[Like]] = ???
-  def getShares(postId: UUID): ErrorOr[List[Share]] = ???
+
+  def getUserProfile(): ErrorOr[UserProfile] =
+    ErrorOr(UserProfile(UUID.randomUUID(), "John", "Doe"))
+
+  def getPosts(userId: UUID): ErrorOr[List[Post]] =
+    ErrorOr(List(Post(UUID.randomUUID(), userId, "Title", "Content")))
+
+  def getComments(postId: UUID): ErrorOr[List[Comment]] =
+    ErrorOr(List(Comment(UUID.randomUUID(), postId, UUID.randomUUID(), "Comment")))
+
+  def getLikes(postId: UUID): ErrorOr[List[Like]] =
+    ErrorOr(List(Like(UUID.randomUUID(), postId, UUID.randomUUID())))
+
+  def getShares(postId: UUID): ErrorOr[List[Share]] =
+    ErrorOr(List(Share(UUID.randomUUID(), postId, UUID.randomUUID())))
